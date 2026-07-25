@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>방명록 | 말레이시아 선교 박람회</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+<header class="header">
+    <div class="logo">📝 방명록</div>
+
+    <nav>
+        <a href="../index.html">홈</a>
+        <a href="intro.html">소개</a>
+        <a href="culture.html">문화</a>
+        <a href="religion.html">종교</a>
+        <a href="campus.html">대학선교</a>
+        <a href="gallery.html">사진</a>
+    </nav>
+</header>
+
+<section class="guestbook-section">
+
+    <h1>방명록</h1>
+
+    <p class="guestbook-subtitle">
+        말레이시아 선교를 위한 응원의 한마디를 남겨주세요.
+    </p>
+
+    <div class="guestbook-form">
+
+        <input
+            type="text"
+            id="name"
+            placeholder="이름">
+
+        <textarea
+            id="message"
+            rows="5"
+            placeholder="응원메시지를 입력해주세요."></textarea>
+
+        <button id="submitBtn">
+            등록하기
+        </button>
+
+    </div>
+
+    <hr>
+
+    <h2>응원메시지</h2>
+
+    <div id="guestbook-list">
+
+        <p style="text-align:center;color:gray;">
+            아직 등록된 메시지가 없습니다.
+        </p>
+
+    </div>
+
+</section>
+
+<footer>
+© 2026 Malaysia Mission Exhibition
+</footer>
+
+<script type="module" src="../guestbook.js"></script>
+
+</body>
+</html>
