@@ -1,3 +1,4 @@
+let isAdmin = false;
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
 
 import {
@@ -34,6 +35,14 @@ const messageInput = document.getElementById("message");
 const submitBtn = document.getElementById("submitBtn");
 const list = document.getElementById("guestbook-list");
 const toast = document.getElementById("toast");
+
+let footerClickCount = 0;
+
+if(sessionStorage.getItem("admin")==="true"){
+
+    isAdmin=true;
+
+}
 
 submitBtn.addEventListener("click", async () => {
 
@@ -113,50 +122,103 @@ onSnapshot(q, (snapshot) => {
                     ❤️ ${data.likes || 0}
                 </button>
 
-                <button class="deleteBtn">
-                    🗑 삭제
-                </button>
+                ${isAdmin ? `
+<button class="deleteBtn">
+🗑 삭제
+</button>
+` : ""}
 
             </div>
         `;
 
         const likeBtn = card.querySelector(".likeBtn");
 
+const likeKey = "liked_" + item.id;
+
+if (localStorage.getItem(likeKey)) {
+
+    likeBtn.disabled = true;
+    likeBtn.style.opacity = "0.6";
+    likeBtn.style.cursor = "not-allowed";
+likeBtn.innerHTML = "❤️ 좋아요 완료";
+
+}
+
         likeBtn.onclick = async () => {
 
-            await updateDoc(
-                doc(db, "guestbook", item.id),
-                {
-                    likes: increment(1)
-                }
-            );
+    if (localStorage.getItem(likeKey)) {
 
-        };
+        alert("이미 좋아요를 누르셨습니다.");
+        return;
+
+    }
+
+    await updateDoc(
+        doc(db, "guestbook", item.id),
+        {
+            likes: increment(1)
+        }
+    );
+
+    localStorage.setItem(likeKey, "true");
+
+    likeBtn.disabled = true;
+    likeBtn.style.opacity = "0.6";
+    likeBtn.style.cursor = "not-allowed";
+likeBtn.innerHTML = "❤️ 좋아요 완료";
+
+};
 
         const deleteBtn = card.querySelector(".deleteBtn");
 
-        deleteBtn.onclick = async () => {
+if(deleteBtn){
 
-            const pw = prompt("관리자 비밀번호를 입력하세요.");
+    deleteBtn.onclick = async () => {
 
-            if (pw !== ADMIN_PASSWORD) {
+        if(!confirm("정말 삭제하시겠습니까?")) return;
 
-                alert("비밀번호가 틀렸습니다.");
+        await deleteDoc(
+            doc(db,"guestbook",item.id)
+        );
 
-                return;
+        alert("삭제되었습니다.");
 
-            }
+    };
 
-            if (!confirm("삭제하시겠습니까?")) return;
-
-            await deleteDoc(
-                doc(db, "guestbook", item.id)
-            );
-
-        };
+}
 
         list.appendChild(card);
 
     });
+
+});
+
+const footer = document.getElementById("footerAdmin");
+
+footer.addEventListener("click",()=>{
+
+    footerClickCount++;
+
+    if(footerClickCount===5){
+
+        footerClickCount=0;
+
+        const pw=prompt("관리자 비밀번호를 입력하세요.");
+
+        if(pw===ADMIN_PASSWORD){
+
+            sessionStorage.setItem("admin","true");
+
+            alert("관리자 모드가 활성화되었습니다.");
+
+            location.reload();
+
+        }else{
+
+            alert("비밀번호가 틀렸습니다.");
+
+        }
+
+    }
 
 });

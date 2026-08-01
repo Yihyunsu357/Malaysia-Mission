@@ -17,28 +17,62 @@ body{
     font-family:'Paperlogy',sans-serif;
 }
 
-.header{
+.hero{
 
-    background:#0b3d91;
-    color:white;
+    background:url("../images/hero/photozone.jpg") center center/cover no-repeat;
+
+    min-height:45vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
     text-align:center;
-    padding:40px 20px;
+
+    color:white;
+
+    position:relative;
 
 }
 
-.header h1{
+.hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+        rgba(0,0,0,.55),
+        rgba(0,0,0,.45)
+    );
+
+}
+
+.hero h1{
 
     margin:0;
-    font-size:42px;
+    font-size:54px;
+    color:#f7d774;
+    text-shadow:3px 3px 15px rgba(0,0,0,.45);
+    position:relative;
+    z-index:1;
 
 }
 
-.header p{
+.hero p{
 
-    margin-top:12px;
+    margin-top:15px;
     font-size:20px;
-    color:#ffd54f;
-    letter-spacing:1px;
+    color:white;
+
+    position:relative;
+    z-index:1;
 
 }
 
@@ -108,15 +142,21 @@ body{
 
 @media(max-width:768px){
 
-.header h1{
+.hero{
 
-font-size:30px;
+    min-height:35vh;
 
 }
 
-.header p{
+.hero h1{
 
-font-size:16px;
+    font-size:36px;
+
+}
+
+.hero p{
+
+    font-size:16px;
 
 }
 
@@ -134,13 +174,13 @@ font-size:24px;
 
 <body>
 
-<div class="header">
+<section class="hero">
 
 <h1>WRC Booth Exhibition</h1>
 
 <p>말레이시아 살린 영적황제</p>
 
-</div>
+</section>
 
 <div class="container">
 
