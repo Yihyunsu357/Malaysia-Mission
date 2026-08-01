@@ -1,25 +1,79 @@
-const slides = [
-  'slides/slide1.png',
-  'slides/slide2.png',
-  'slides/slide3.png'
-];
+const buttons=document.querySelectorAll(".language button");
 
-let current = 0;
+function activate(index){
 
-const img = document.getElementById('slide');
+buttons.forEach(btn=>btn.classList.remove("active"));
 
-function show() {
-  img.src = slides[current];
+buttons[index].classList.add("active");
+
 }
 
-window.nextSlide = function () {
-  current = (current + 1) % slides.length;
-  show();
-};
+function showKR(){
 
-window.prevSlide = function () {
-  current = (current - 1 + slides.length) % slides.length;
-  show();
-};
+document.getElementById("korean").style.display="block";
+document.getElementById("english").style.display="none";
 
-setInterval(window.nextSlide, 8000);
+activate(0);
+
+animateCards();
+
+}
+
+function showEN(){
+
+document.getElementById("korean").style.display="none";
+document.getElementById("english").style.display="block";
+
+activate(1);
+
+animateCards();
+
+}
+
+function animateCards(){
+
+const section=document.getElementById("korean").style.display==="none"
+    ? document.getElementById("english")
+    : document.getElementById("korean");
+
+const cards=section.querySelectorAll(".prayer-card");
+
+cards.forEach((card,index)=>{
+
+card.classList.remove("show");
+
+setTimeout(()=>{
+
+card.classList.add("show");
+
+},index*180);
+
+});
+
+}
+
+window.addEventListener("load",()=>{
+
+showKR();
+
+});
+
+const observer=new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("show");
+
+}
+
+});
+
+},{threshold:0.15});
+
+document.querySelectorAll(".prayer-card").forEach(card=>{
+
+observer.observe(card);
+
+});

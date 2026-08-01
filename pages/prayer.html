@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Prayer Requests</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<style>
+
+body{
+
+    margin:0;
+    background:#eef3fb;
+    font-family:'Paperlogy',sans-serif;
+
+}
+
+.hero{
+
+    background:#0b3d91;
+    color:white;
+    text-align:center;
+    padding:60px 20px;
+
+}
+
+.hero h1{
+
+    margin:0;
+    font-size:48px;
+
+}
+
+.hero p{
+
+    margin-top:15px;
+    color:#f7d774;
+    font-size:20px;
+
+}
+
+.language{
+
+    text-align:center;
+    margin:40px 0;
+
+}
+
+.language button{
+
+    padding:14px 35px;
+    margin:0 10px;
+    border:none;
+    border-radius:40px;
+    cursor:pointer;
+    background:#0b3d91;
+    color:white;
+    font-size:17px;
+    transition:.3s;
+
+}
+
+.language button:hover{
+
+    background:#082c69;
+    transform:translateY(-3px);
+
+}
+
+.container{
+
+    width:92%;
+    max-width:1100px;
+    margin:auto;
+    padding-bottom:80px;
+
+}
+
+.prayer-card{
+
+    background:white;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,.12);
+    margin-bottom:40px;
+    overflow:hidden;
+
+}
+
+.card-title{
+
+    background:#0b3d91;
+    color:white;
+    padding:18px 30px;
+    font-size:24px;
+    font-weight:bold;
+
+}
+
+.card-title::after{
+
+content:"";
+display:block;
+width:70px;
+height:3px;
+margin-top:10px;
+background:linear-gradient(90deg,#c8a24d,#f7e7a1,#c8a24d);
+border-radius:10px;
+
+}
+
+.card-title span{
+
+    display:block;
+    color:#ffd54f;
+    font-size:15px;
+    margin-top:6px;
+    font-weight:normal;
+
+}
+
+.card-body{
+
+    padding:35px;
+
+}
+
+.card-body pre{
+
+    margin:0;
+    white-space:pre-wrap;
+    line-height:1.9;
+    font-size:17px;
+    font-family:'Paperlogy',sans-serif;
+
+}
+
+#english{
+
+    display:none;
+
+}
+
+@media(max-width:768px){
+
+.hero h1{
+
+font-size:34px;
+
+}
+
+.hero p{
+
+font-size:16px;
+
+}
+
+.language button{
+
+display:block;
+width:90%;
+margin:10px auto;
+
+}
+
+.card-title{
+
+font-size:20px;
+
+}
+
+.card-body{
+
+padding:25px;
+
+}
+
+.card-body pre{
+
+font-size:15px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<section class="hero">
+
+<h1>Prayer Requests</h1>
+
+<p>기도제목</p>
+
+</section>
+
+<div class="language">
+
+<button class="active" onclick="showKR()">
+🇰🇷 한국어
+</button>
+
+<button onclick="showEN()">
+🇺🇸 English
+</button>
+
+</div>
+
+<div class="container">
+
+<div id="korean">
+
+<div class="prayer-card">
+
+<div class="card-title">
+
+유진 선교사
+
+<span>Missionary Eugene</span>
+
+</div>
+
+<div class="card-body">
+
+<pre>
+
+유진 선교사 기도제목  
+1. 하나님의 유일한 복음의 망대가 내 안에 각인, 뿌리, 체질되게 하소서! 
+2. 동남아시아에 역사하는 종교 사상 문화의 배경인 사탄의 권세가 무너지게 하소서 
+3. 현장의 예비해 놓으신 그리스도의 제자가 세워지게 하소서 
+4. 미래 선교사 훈련의 시스템인 RUTC가 세워지게 하소서 
+5. 아직 열리지 않은 5,000종족의 후대 문들이 열리게 하시고 학교시스템이 세워지게 하소서 
+6. 하나님의 망대와 여정과 이정표가 성취되는 발걸음이 되게 하소서!  
+
+</pre>
+
+</div>
+
+</div>
+
+<div class="prayer-card">
+
+<div class="card-title">
+
+김현수 선교사
+
+<span>Missionary Hyunsoo Kim</span>
+
+</div>
+
+<div class="card-body">
+
+<pre>
+
+김현수 선교사 기도제목  
+(브루나이 지하교회, FLTC 바탐신학교, 원주민, 미얀마인, 난민, 다민족 사역 등)  
+1. 237나라 5,000미전도종족 선교의 최일선인 말레이시아의 복음 듣지 못하고 멸망하는 미전도종족을 살리도록 
+2. 말레이어권인 브루나이, 인도네시아, 말레이시아의 모든 무슬림을 살리고 지하 교회 성도를 일천 망대로 세우도록 
+3. FLTC, 바탐신학대학을 통해 복음과 전도에 생을 건 전도자를 키우도록  
+4. 선교사에게 성령의 충만과 5력이 넘치며 복음선교 사역의 동역자, 중직자, 산업인, 렘넌트 제자가 세워지도록  
+
+</pre>
+
+</div>
+
+</div>
+
+<div class="prayer-card">
+
+<div class="card-title">
+
+스닝 집사
+
+<span>Deacon Sning</span>
+
+</div>
+
+<div class="card-body">
+
+<pre>
+
+스닝 집사 기도제목 
+(난민학교, TCK, NCK, CCK 어린이, 현지렘넌트 사역 등)  
+1. 다음세대가 복음을 정확히 알고 다른 사람을 살리는 영적 서밋으로 세워지도록 
+2. 교회·현장·가정에서 3뜰 시대가 계속 열리도록 
+3. 학교 전략의 문이 열리도록(1대 1학교, 소규모 학교, 난민학교) 
+4. 렘넌트가 어릴 때부터 복음이 각인되어 영적 서밋으로 세워지도록 
+5. 하나님께서 예비하신 참된 제자를 찾을 수 있도록
+
+</pre>
+
+</div>
+
+</div>
+
+</div>
+
+<div id="english">
+
+<div class="prayer-card">
+
+<div class="card-title">
+
+Missionary Eugene
+
+<span>유진 선교사</span>
+
+</div>
+
+<div class="card-body">
+
+<pre>
+
+Missionary Eugene Prayer Topics  
+1. May God's only watchtower of the gospel be imprinted, rooted, and natured in me! 
+2. May the authority of Satan, which is the background of religious, ideological, and cultural thoughts working in Southeast Asia, be broken. 
+3. May the disciples of Christ prepared in the field be raised up. 
+4. May RUTC, the system for training future missionaries, be established. 
+5. May the doors to the descendants of the 5,000 unreached people groups that are not yet open be opened, and may school systems be established. 
+6. May these steps become steps where God's watchtower, journey, and guidepost are fulfilled!  
+
+</pre>
+
+</div>
+
+</div>
+
+<div class="prayer-card">
+
+<div class="card-title">
+
+Missionary Hyunsoo Kim
+
+<span>김현수 선교사</span>
+
+</div>
+
+<div class="card-body">
+
+<pre>
+
+Missionary Hyunsoo Kim Prayer Topics 
+(Brunei Underground Church, FLTC Batam Seminary, Indigenous People, Myanmar People, Refugees, Multi-ethnic Ministry, etc.)  
+1. To save the unreached people groups who perish without hearing the gospel in Malaysia, the frontline of missions for 237 nations and 5,000 unreached people groups 
+2. To save all Muslims in the Malay-speaking world of Brunei, Indonesia, and Malaysia, and to raise underground church believers as absolute disciples—one thousand watchtowers 
+3. To raise up evangelists who risk their lives for the gospel and evangelism through FLTC and Batam Seminary 
+4. For the missionary to overflow with the fullness of the Holy Spirit and five powers, and for coworkers of gospel missions, church officers, business people, and remnant disciples to be raised up
+
+</pre>
+
+</div>
+
+</div>
+
+<div class="prayer-card">
+
+<div class="card-title">
+
+Deacon Sning
+
+<span>스닝 집사</span>
+
+</div>
+
+<div class="card-body">
+
+<pre>
+
+Deacon Sning Prayer Topics 
+(Refugee School, TCK, NCK, CCK Children, Local Remnant Ministry, etc.)  
+1. For the next generation to accurately know the gospel and be raised up as spiritual summits who save other people 
+2. For the Era of Three Courtyards to continually open in the church, field, and home 
+3. For doors of school strategies to open (1-on-1 schools, small-scale schools, refugee schools) 
+4. For remnants to have the gospel imprinted from an early age and be raised up as spiritual summits 5. To be able to find true disciples prepared by God
+
+</pre>
+
+</div>
+
+</div>
+
+</div>
+
+<div style="text-align:center; margin-top:60px;">
+
+<a class="back" href="../index.html">
+
+← 메인으로 돌아가기
+
+</a>
+
+</div>
+
+</div>
+
+<script src="../script.js"></script>
+
+</body>
+
+</html>
