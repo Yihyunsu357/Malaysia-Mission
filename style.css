@@ -148,6 +148,24 @@ margin-top:15px;
 font-size:20px;
 }
 
+.card p{
+    margin-top:8px;
+    font-size:15px;
+    color:#777;
+    font-weight:400;
+    letter-spacing:1px;
+}
+
+.card h3::before{
+    content:"";
+    display:block;
+    width:60px;
+    height:3px;
+    background:linear-gradient(90deg,#c8a24d,#f7e7a1,#c8a24d);
+    margin:0 auto 15px;
+    border-radius:10px;
+}
+
 footer{
 text-align:center;
 padding:35px;
