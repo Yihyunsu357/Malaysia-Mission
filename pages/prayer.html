@@ -22,25 +22,64 @@ body{
 
 .hero{
 
-    background:#0b3d91;
-    color:white;
+    background:url("../images/hero/photozone.jpg") center center/cover no-repeat;
+
+    min-height:45vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
     text-align:center;
-    padding:60px 20px;
+
+    color:white;
+
+    position:relative;
+
+}
+
+.hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+    rgba(0,0,0,.55),
+    rgba(0,0,0,.45)
+);
 
 }
 
 .hero h1{
 
     margin:0;
-    font-size:48px;
+    font-size:54px;
+    color:#f7d774;
+    text-shadow:3px 3px 15px rgba(0,0,0,.45);
 
 }
 
 .hero p{
 
     margin-top:15px;
-    color:#f7d774;
+    color:white;
     font-size:20px;
+
+}
+
+.hero h1,
+.hero p{
+
+    position:relative;
+
+    z-index:1;
 
 }
 
@@ -146,6 +185,12 @@ border-radius:10px;
 }
 
 @media(max-width:768px){
+
+.hero{
+
+    min-height:35vh;
+
+}
 
 .hero h1{
 

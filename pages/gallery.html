@@ -22,25 +22,64 @@ body{
 
 .hero{
 
-    background:#0b3d91;
-    color:white;
+    background:url("../images/hero/photozone.jpg") center center/cover no-repeat;
+
+    min-height:45vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
     text-align:center;
-    padding:70px 20px;
+
+    color:white;
+
+    position:relative;
+
+}
+
+.hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+    rgba(0,0,0,.55),
+    rgba(0,0,0,.45)
+);
 
 }
 
 .hero h1{
 
     margin:0;
-    font-size:52px;
+    font-size:54px;
+    color:#f7d774;
+    text-shadow:3px 3px 15px rgba(0,0,0,.45);
 
 }
 
 .hero p{
 
-    color:#f7d774;
+    color:white;
     font-size:20px;
     margin-top:15px;
+    position:relative;
+    z-index:1;
+
+}
+
+.hero h1{
+
+    position:relative;
+    z-index:1;
 
 }
 
@@ -64,6 +103,9 @@ body{
     color:#0b3d91;
     font-size:34px;
     margin-bottom:10px;
+
+    border-left:4px solid #c8a24d;
+    padding-left:18px;
 
 }
 
@@ -159,6 +201,12 @@ body{
 
 @media(max-width:768px){
 
+.hero{
+
+    min-height:35vh;
+
+}
+
 .hero h1{
 
 font-size:36px;
@@ -199,7 +247,7 @@ height:220px;
 
 <div class="section">
 
-<h2>📍 Brunei Underground Church</h2>
+<h2>Brunei Underground Church</h2>
 
 <p>브루나이 지하교회 사역</p>
 
@@ -241,7 +289,7 @@ height:220px;
 
 <div class="section">
 
-<h2>📍 FLTC Batam Seminary</h2>
+<h2>FLTC Batam Seminary</h2>
 
 <p>FLTC 바탐신학원 사역</p>
 
@@ -297,7 +345,7 @@ height:220px;
 
 <div class="section">
 
-<h2>📍 Myanmar Refugee Ministry</h2>
+<h2>Myanmar Refugee Ministry</h2>
 
 <p>미얀마 난민 사역</p>
 
