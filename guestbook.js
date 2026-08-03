@@ -184,6 +184,18 @@ if (containsSpam(name + " " + message)) {
 
     localStorage.setItem("lastPostTime", now);
 
+const lastMessage = localStorage.getItem("lastMessage");
+
+if (lastMessage === message) {
+
+    alert("같은 내용은 연속해서 등록할 수 없습니다.");
+
+    return;
+
+}
+
+localStorage.setItem("lastMessage", message);
+
     try {
 
         await addDoc(collection(db, "guestbook"), {
@@ -393,15 +405,3 @@ submitBtn.disabled = false;
 submitBtn.textContent = "등록";
 
 nameInput.focus();
-
-const lastMessage = localStorage.getItem("lastMessage");
-
-if (lastMessage === message) {
-
-    alert("같은 내용은 연속해서 등록할 수 없습니다.");
-
-    return;
-
-}
-
-localStorage.setItem("lastMessage", message);
