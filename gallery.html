@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Gallery</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<style>
+
+body{
+
+    margin:0;
+    background:#eef3fb;
+    font-family:'Paperlogy',sans-serif;
+
+}
+
+.hero{
+
+    background:url("../images/hero/photozone.jpg") center center/cover no-repeat;
+
+    min-height:45vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    color:white;
+
+    position:relative;
+
+}
+
+.hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+    rgba(0,0,0,.55),
+    rgba(0,0,0,.45)
+);
+
+}
+
+.hero h1{
+
+    margin:0;
+    font-size:54px;
+    color:#f7d774;
+    text-shadow:3px 3px 15px rgba(0,0,0,.45);
+
+}
+
+.hero p{
+
+    color:white;
+    font-size:20px;
+    margin-top:15px;
+    position:relative;
+    z-index:1;
+
+}
+
+.hero h1{
+
+    position:relative;
+    z-index:1;
+
+}
+
+.container{
+
+    width:92%;
+    max-width:1300px;
+    margin:auto;
+    padding:60px 0;
+
+}
+
+.section{
+
+    margin-bottom:80px;
+
+}
+
+.section h2{
+
+    color:#0b3d91;
+    font-size:34px;
+    margin-bottom:10px;
+
+    border-left:4px solid #c8a24d;
+    padding-left:18px;
+
+}
+
+.section p{
+
+    color:#666;
+    margin-bottom:35px;
+    font-size:18px;
+
+}
+
+.gallery-grid{
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:30px;
+
+}
+
+.gallery-item{
+
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,.12);
+    transition:.35s;
+    cursor:pointer;
+
+}
+
+.gallery-item:hover{
+
+    transform:translateY(-8px);
+    box-shadow:0 20px 40px rgba(0,0,0,.18);
+
+}
+
+.gallery-item:hover img{
+
+    transform:scale(1.05);
+
+}
+
+.gallery-item img{
+
+    width:100%;
+
+    height:260px;
+
+    object-fit:cover;
+
+    display:block;
+
+    transition:transform .35s ease;
+
+}
+
+.caption{
+
+    padding:20px;
+
+}
+
+.caption h3{
+
+    color:#0b3d91;
+    margin:0 0 8px;
+
+}
+
+.caption p{
+
+    margin:0;
+    color:#777;
+    font-size:15px;
+
+}
+
+.back{
+
+    display:inline-block;
+    margin-top:40px;
+    padding:15px 35px;
+    border-radius:40px;
+    background:#0b3d91;
+    color:white;
+    text-decoration:none;
+    transition:.3s;
+
+}
+
+.back:hover{
+
+    background:#082c69;
+
+}
+
+.footer{
+
+    text-align:center;
+    margin-bottom:80px;
+
+}
+
+@media(max-width:768px){
+
+.hero{
+
+    min-height:35vh;
+
+}
+
+.hero h1{
+
+font-size:36px;
+
+}
+
+.section h2{
+
+font-size:28px;
+
+}
+
+.gallery-item img{
+
+height:220px;
+
+}
+
+}
+
+.section-divider{
+
+    width:120px;
+
+    height:3px;
+
+    border:none;
+
+    background:#c8a24d;
+
+    margin:60px auto;
+
+    border-radius:10px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<section class="hero">
+
+<h1>Gallery</h1>
+
+<p>Malaysia Mission Gallery</p>
+
+</section>
+
+<div class="container">
+
+<!-- East Malaysia Antioch -->
+
+<div class="section">
+
+<h2>East Malaysia Antioch Church</h2>
+
+<p>동말레이시아 안디옥교회 사역</p>
+
+<div class="gallery-grid">
+
+    <div class="gallery-item">
+        <img
+src="../images/gallery/antioch1.jpg"
+alt="Antioch1"
+loading="lazy"
+decoding="async">
+        <div class="caption">
+            <h3>East Malaysia Antioch Church</h3>
+            <p>동말레이시아 안디옥교회 사역</p>
+        </div>
+    </div>
+
+    <div class="gallery-item">
+        <img
+    src="../images/gallery/antioch2.jpg"
+    alt="Antioch2"
+    loading="lazy"
+    decoding="async">
+        <div class="caption">
+            <h3>East Malaysia Antioch Church</h3>
+            <p>동말레이시아 안디옥교회 사역</p>
+        </div>
+    </div>
+
+    <div class="gallery-item">
+        <img
+    src="../images/gallery/antioch3.jpg"
+    alt="Antioch3"
+    loading="lazy"
+    decoding="async">
+        <div class="caption">
+            <h3>East Malaysia Antioch Church</h3>
+            <p>동말레이시아 안디옥교회 사역</p>
+        </div>
+    </div>
+
+    <div class="gallery-item">
+        <img
+    src="../images/gallery/antioch4.jpg"
+    alt="Antioch4"
+    loading="lazy"
+    decoding="async">
+        <div class="caption">
+            <h3>East Malaysia Antioch Church</h3>
+            <p>동말레이시아 안디옥교회 사역</p>
+        </div>
+    </div>
+
+    <div class="gallery-item">
+        <img
+    src="../images/gallery/antioch5.jpg"
+    alt="Antioch5"
+    loading="lazy"
+    decoding="async">
+        <div class="caption">
+            <h3>East Malaysia Antioch Church</h3>
+            <p>동말레이시아 안디옥교회 사역</p>
+        </div>
+    </div>
+
+    <div class="gallery-item">
+        <img
+    src="../images/gallery/antioch6.jpg"
+    alt="Antioch6"
+    loading="lazy"
+    decoding="async">
+        <div class="caption">
+            <h3>East Malaysia Antioch Church</h3>
+            <p>동말레이시아 안디옥교회 사역</p>
+        </div>
+    </div>
+
+    <div class="gallery-item">
+       <img
+    src="../images/gallery/antioch7.jpg"
+    alt="Antioch7"
+    loading="lazy"
+    decoding="async">
+        <div class="caption">
+            <h3>East Malaysia Antioch Church</h3>
+            <p>동말레이시아 안디옥교회 사역</p>
+        </div>
+    </div>
+
+    <div class="gallery-item">
+       <img
+    src="../images/gallery/antioch8.jpg"
+    alt="Antioch8"
+    loading="lazy"
+    decoding="async">
+        <div class="caption">
+            <h3>East Malaysia Antioch Church</h3>
+            <p>동말레이시아 안디옥교회 사역</p>
+        </div>
+    </div>
+
+</div>
+
+</div>
+
+<hr class="section-divider">
+
+<!-- Myanmar -->
+
+<div class="section">
+
+<h2>Myanmar Refugee Ministry</h2>
+
+<p>미얀마 난민 사역</p>
+
+<div class="gallery-grid">
+
+<div class="gallery-item">
+
+<img
+    src="../images/gallery/refugee1.jpeg"
+    alt="Refugee1"
+    loading="lazy"
+    decoding="async">
+
+<div class="caption">
+
+<h3>Myanmar Refugee Ministry</h3>
+
+<p>미얀마 난민 사역</p>
+
+</div>
+
+</div>
+
+<div class="gallery-item">
+
+<img
+    src="../images/gallery/refugee2.jpeg"
+    alt="Refugee2"
+    loading="lazy"
+    decoding="async">
+<div class="caption">
+
+<h3>Myanmar Refugee Ministry</h3>
+
+<p>미얀마 난민 사역</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- FLTC -->
+
+<div class="section">
+
+<h2>Other Southeast Asia Ministry</h2>
+
+<p>기타 동남아 사역</p>
+
+<div class="gallery-grid">
+
+<div class="gallery-item">
+
+<img
+    src="../images/gallery/fltc1.jpeg"
+    alt="FLTC1"
+    loading="lazy"
+    decoding="async">
+
+<div class="caption">
+
+<h3>Other Southeast Asia Ministry</h3>
+
+<p>기타 동남아 사역</p>
+
+</div>
+
+</div>
+
+<div class="gallery-item">
+
+<img
+    src="../images/gallery/fltc2.jpeg"
+    alt="FLTC2"
+    loading="lazy"
+    decoding="async">
+
+<div class="caption">
+
+<h3>Other Southeast Asia Ministry</h3>
+
+<p>기타 동남아 사역</p>
+
+</div>
+
+</div>
+
+<div class="gallery-item">
+
+<img
+    src="../images/gallery/fltc3.jpeg"
+    alt="FLTC3"
+    loading="lazy"
+    decoding="async">
+
+<div class="caption">
+
+<h3>Other Southeast Asia Ministry</h3>
+
+<p>기타 동남아 사역</p>
+
+</div>
+
+</div>
+
+<div class="gallery-item">
+
+<img
+    src="../images/gallery/brunei1.jpeg"
+    alt="Brunei1"
+    loading="lazy"
+    decoding="async">
+
+<div class="caption">
+
+<h3>Other Southeast Asia Ministry</h3>
+
+<p>기타 동남아 사역</p>
+
+</div>
+
+</div>
+
+<div class="gallery-item">
+
+<img
+    src="../images/gallery/brunei2.jpeg"
+    alt="Brunei2"
+    loading="lazy"
+    decoding="async">
+
+<div class="caption">
+
+<h3>Other Southeast Asia Ministry</h3>
+
+<p>기타 동남아 사역</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="footer">
+
+<a class="back" href="../index.html">
+
+← 메인으로 돌아가기
+
+</a>
+
+</div>
+
+</div>
+
+<!-- ===== Lightbox ===== -->
+
+<div id="lightbox" class="lightbox">
+
+<span class="close">&times;</span>
+
+<span class="prev">&#10094;</span>
+
+<img id="lightbox-img">
+
+<span class="next">&#10095;</span>
+
+</div>
+
+<style>
+
+.lightbox{
+
+display:none;
+position:fixed;
+z-index:9999;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.92);
+justify-content:center;
+align-items:center;
+
+}
+
+.lightbox img{
+
+max-width:90%;
+max-height:85%;
+border-radius:12px;
+box-shadow:0 10px 40px rgba(0,0,0,.5);
+
+transition:opacity .35s ease;
+
+}
+
+.close{
+
+position:absolute;
+top:25px;
+right:40px;
+font-size:45px;
+color:white;
+cursor:pointer;
+user-select:none;
+
+}
+
+.prev,
+.next{
+
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+font-size:55px;
+color:white;
+cursor:pointer;
+padding:15px;
+user-select:none;
+transition:.3s;
+
+}
+
+.prev:hover,
+.next:hover{
+
+color:#f7d774;
+
+}
+
+.prev{
+
+left:25px;
+
+}
+
+.next{
+
+right:25px;
+
+}
+
+@media(max-width:768px){
+
+.prev,
+.next{
+
+font-size:40px;
+
+}
+
+.close{
+
+font-size:36px;
+right:20px;
+
+}
+
+}
+
+</style>
+
+<script>
+
+const images=[
+
+"../images/gallery/antioch1.jpeg",
+"../images/gallery/antioch2.jpeg",
+"../images/gallery/antioch3.jpeg",
+"../images/gallery/antioch4.jpeg",
+"../images/gallery/antioch5.jpeg",
+"../images/gallery/antioch6.jpeg",
+"../images/gallery/antioch7.jpeg",
+"../images/gallery/antioch8.jpeg",
+
+"../images/gallery/refugee1.jpeg",
+"../images/gallery/refugee2.jpeg",
+
+"../images/gallery/fltc1.jpeg",
+"../images/gallery/fltc2.jpeg",
+"../images/gallery/fltc3.jpeg",
+
+"../images/gallery/brunei1.jpeg",
+"../images/gallery/brunei2.jpeg"
+
+];
+
+let currentIndex=0;
+let startX = 0;
+
+const galleryImages=document.querySelectorAll(".gallery-item img");
+
+const lightbox=document.getElementById("lightbox");
+
+const lightboxImg=document.getElementById("lightbox-img");
+
+lightbox.addEventListener("touchstart",(e)=>{
+
+    startX=e.changedTouches[0].clientX;
+
+});
+
+lightbox.addEventListener("touchend",(e)=>{
+
+    const endX=e.changedTouches[0].clientX;
+
+    const diff=endX-startX;
+
+    if(diff>70){
+
+        currentIndex--;
+
+        if(currentIndex<0){
+
+            currentIndex=images.length-1;
+
+        }
+
+        showImage();
+
+    }
+
+    if(diff<-70){
+
+        currentIndex++;
+
+        if(currentIndex>=images.length){
+
+            currentIndex=0;
+
+        }
+
+        showImage();
+
+    }
+
+});
+
+galleryImages.forEach((img,index)=>{
+
+    img.addEventListener("click",()=>{
+
+        currentIndex=index;
+
+        showImage();
+
+    });
+
+});
+
+function showImage(){
+
+    lightbox.style.display="flex";
+
+    lightboxImg.style.opacity="0";
+
+    setTimeout(()=>{
+
+        lightboxImg.src=images[currentIndex];
+
+        lightboxImg.onload=function(){
+
+            lightboxImg.style.opacity="1";
+
+        };
+
+    },150);
+
+}
+
+function closeLightbox(){
+
+lightbox.style.display="none";
+
+}
+
+document.querySelector(".close").onclick=closeLightbox;
+
+lightbox.onclick=function(e){
+
+if(e.target===lightbox){
+
+closeLightbox();
+
+}
+
+}
+
+document.querySelector(".next").onclick=function(){
+
+currentIndex++;
+
+if(currentIndex>=images.length){
+
+currentIndex=0;
+
+}
+
+showImage();
+
+}
+
+document.querySelector(".prev").onclick=function(){
+
+currentIndex--;
+
+if(currentIndex<0){
+
+currentIndex=images.length-1;
+
+}
+
+showImage();
+
+}
+
+document.addEventListener("keydown",function(e){
+
+if(lightbox.style.display!=="flex") return;
+
+if(e.key==="Escape"){
+
+closeLightbox();
+
+}
+
+if(e.key==="ArrowRight"){
+
+currentIndex++;
+
+if(currentIndex>=images.length){
+
+currentIndex=0;
+
+}
+
+showImage();
+
+}
+
+if(e.key==="ArrowLeft"){
+
+currentIndex--;
+
+if(currentIndex<0){
+
+currentIndex=images.length-1;
+
+}
+
+showImage();
+
+}
+
+});
+
+</script>
+
+</body>
+
+</html>
