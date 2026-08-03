@@ -91,7 +91,12 @@ submitBtn.addEventListener("click", async () => {
 
 }
 
-if (containsBadWord(name + " " + message)) {
+const text = name + " " + message;
+
+console.log("입력:", text);
+console.log("욕설 검사:", containsBadWord(text));
+
+if (containsBadWord(text)) {
 
     alert("욕설 및 비속어는 사용할 수 없습니다.");
 
