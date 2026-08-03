@@ -1,3 +1,5 @@
+console.log("BADWORDS LOADED");
+
 /*
 ==========================================
 Malaysia Mission v3.0

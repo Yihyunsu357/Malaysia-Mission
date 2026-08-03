@@ -3,6 +3,8 @@ import {
     isReservedName
 } from "./badwords.js";
 
+console.log("GUESTBOOK LOADED");
+
 import {
     containsSpam
 } from "./spamwords.js";
