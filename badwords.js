@@ -360,6 +360,8 @@ Bad Word Checker
 
 export function containsBadWord(text){
 
+console.log("NEW BADWORDS.JS LOADED");
+
     const value = normalizeText(text);
 
     const words = [
@@ -372,7 +374,15 @@ export function containsBadWord(text){
 
     ];
 
-    return words.some(word=>value.includes(normalizeText(word)));
+    return words.some(word => {
+
+    const normalized = normalizeText(word);
+
+    if (!normalized) return false;
+
+    return value.includes(normalized);
+
+});
 
 }
 
