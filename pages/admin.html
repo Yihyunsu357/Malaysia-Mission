@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>관리자 패널</title>
+
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="../admin.css">
+
+</head>
+
+<body>
+
+<header class="adminHeader">
+
+    <h1>🛡 관리자 패널</h1>
+
+    <button id="logoutBtn">
+        로그아웃
+    </button>
+
+</header>
+
+<nav class="adminMenu">
+
+    <button class="menuBtn active"
+            data-page="dashboard">
+
+        📊 Dashboard
+
+    </button>
+
+    <button class="menuBtn"
+            data-page="guestbook">
+
+        💬 전체 글
+
+    </button>
+
+    <button class="menuBtn"
+            data-page="reported">
+
+        🚩 신고된 글
+
+    </button>
+
+    <button class="menuBtn"
+            data-page="reply">
+
+        📝 답글 관리
+
+    </button>
+
+    <button class="menuBtn"
+            data-page="notice">
+
+        📌 공지
+
+    </button>
+
+</nav>
+
+<main>
+
+<section
+id="dashboardPage"
+class="adminPage active">
+
+    <div class="statGrid">
+
+        <div class="statCard">
+
+            <h2>총 글</h2>
+
+            <span id="totalPosts">
+                0
+            </span>
+
+        </div>
+
+        <div class="statCard">
+
+            <h2>오늘 작성</h2>
+
+            <span id="todayPosts">
+                0
+            </span>
+
+        </div>
+
+        <div class="statCard">
+
+            <h2>좋아요</h2>
+
+            <span id="totalLikes">
+                0
+            </span>
+
+        </div>
+
+        <div class="statCard">
+
+            <h2>신고</h2>
+
+            <span id="reportedPosts">
+                0
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section
+id="guestbookPage"
+class="adminPage">
+
+<h2>전체 방명록</h2>
+
+<div id="adminGuestbookList">
+
+</div>
+
+</section>
+
+<section
+id="reportedPage"
+class="adminPage">
+
+<h2>🚩 신고된 글</h2>
+
+<div id="reportedList">
+
+</div>
+
+</section>
+
+<section
+id="replyPage"
+class="adminPage">
+
+<h2>📝 관리자 답글</h2>
+
+<div id="replyList">
+
+</div>
+
+</section>
+
+<section
+id="noticePage"
+class="adminPage">
+
+<h2>📌 공지</h2>
+
+<textarea
+id="noticeText"
+rows="8"
+placeholder="공지사항 입력">
+
+</textarea>
+
+<button id="saveNotice">
+
+공지 저장
+
+</button>
+
+</section>
+
+</main>
+
+<script type="module"
+src="../admin.js"></script>
+
+</body>
+
+</html>

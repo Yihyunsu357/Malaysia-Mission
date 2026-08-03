@@ -1,3 +1,12 @@
+import {
+    containsBadWord,
+    isReservedName
+} from "./badwords.js";
+
+import {
+    containsSpam
+} from "./spamwords.js";
+
 let isAdmin = false;
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
 
@@ -49,10 +58,131 @@ submitBtn.addEventListener("click", async () => {
     const name = nameInput.value.trim();
     const message = messageInput.value.trim();
 
+    // ===========================
+    // 1. 공백 검사
+    // ===========================
+
     if (!name || !message) {
         alert("이름과 응원메시지를 입력해주세요.");
         return;
     }
+
+    // ===========================
+    // 2. 글자 수 제한
+    // ===========================
+
+    if (name.length > 20) {
+        alert("이름은 최대 20자까지 입력 가능합니다.");
+        return;
+    }
+
+    if (message.length > 300) {
+        alert("응원메시지는 최대 300자까지 입력 가능합니다.");
+        return;
+    }
+
+    
+
+    if (isReservedName(name)) {
+
+    alert("사용할 수 없는 이름입니다.");
+
+    return;
+
+}
+
+if (containsBadWord(name + " " + message)) {
+
+    alert("욕설 및 비속어는 사용할 수 없습니다.");
+
+    return;
+
+}
+
+if (containsSpam(name + " " + message)) {
+
+    alert("광고 및 링크는 입력할 수 없습니다.");
+
+    return;
+
+}
+
+    // ===========================
+    // 4. URL 차단
+    // ===========================
+
+    const urlPattern =
+    /(http:\/\/|https:\/\/|www\.|bit\.ly|tinyurl|discord\.gg|t\.me|telegram|instagram|facebook|youtube|open\.kakao)/i;
+
+    if (urlPattern.test(message)) {
+
+        alert("링크(URL)는 입력할 수 없습니다.");
+
+        return;
+
+    }
+
+    // ===========================
+    // 5. 이메일 차단
+    // ===========================
+
+    const emailPattern =
+    /[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/i;
+
+    if (emailPattern.test(message)) {
+
+        alert("이메일 주소는 입력할 수 없습니다.");
+
+        return;
+
+    }
+
+    // ===========================
+    // 6. 전화번호 차단
+    // ===========================
+
+    const phonePattern =
+    /01[016789]-?\d{3,4}-?\d{4}/;
+
+    if (phonePattern.test(message)) {
+
+        alert("전화번호는 입력할 수 없습니다.");
+
+        return;
+
+    }
+
+    // ===========================
+    // 7. 반복 문자 차단
+    // ===========================
+
+    const repeatPattern = /(.)\1{7,}/;
+
+    if (repeatPattern.test(message)) {
+
+        alert("같은 문자를 반복해서 사용할 수 없습니다.");
+
+        return;
+
+    }
+
+    // ===========================
+    // 8. 도배 방지
+    // ===========================
+
+    const lastPost = Number(localStorage.getItem("lastPostTime") || 0);
+
+    const now = Date.now();
+
+    if (now - lastPost < 10000) {
+
+        alert("10초 후 다시 등록해주세요.");
+
+        return;
+
+    }
+
+    localStorage.setItem("lastPostTime", now);
 
     try {
 
@@ -106,7 +236,7 @@ onSnapshot(q, (snapshot) => {
         let date = "";
 
         if (data.createdAt) {
-            date = data.createdAt.toDate().toLocaleString("ko-KR");
+            date = getRelativeTime(data.createdAt.toDate());
         }
 
         card.innerHTML = `
@@ -222,3 +352,56 @@ footer.addEventListener("click",()=>{
     }
 
 });
+
+function getRelativeTime(date) {
+
+    const now = new Date();
+
+    const diff = Math.floor((now - date) / 1000);
+
+    if (diff < 60) return "방금 전";
+
+    if (diff < 3600)
+        return `${Math.floor(diff / 60)}분 전`;
+
+    if (diff < 86400)
+        return `${Math.floor(diff / 3600)}시간 전`;
+
+    if (diff < 172800)
+        return "어제";
+
+    if (diff < 604800)
+        return `${Math.floor(diff / 86400)}일 전`;
+
+    return date.toLocaleDateString("ko-KR");
+
+}
+
+const charCount = document.getElementById("charCount");
+
+messageInput.addEventListener("input", () => {
+
+    charCount.textContent =
+        `${messageInput.value.length} / 300`;
+
+});
+
+submitBtn.disabled = true;
+submitBtn.textContent = "등록중...";
+
+submitBtn.disabled = false;
+submitBtn.textContent = "등록";
+
+nameInput.focus();
+
+const lastMessage = localStorage.getItem("lastMessage");
+
+if (lastMessage === message) {
+
+    alert("같은 내용은 연속해서 등록할 수 없습니다.");
+
+    return;
+
+}
+
+localStorage.setItem("lastMessage", message);

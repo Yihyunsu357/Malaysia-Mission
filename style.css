@@ -547,3 +547,31 @@ font-size:16px;
 }
 
 }
+
+#charCount{
+
+text-align:right;
+
+font-size:13px;
+
+color:#777;
+
+margin-top:6px;
+
+}
+
+.section-divider{
+
+width:120px;
+
+height:3px;
+
+background:#c8a24d;
+
+border:none;
+
+margin:60px auto;
+
+border-radius:10px;
+
+}
